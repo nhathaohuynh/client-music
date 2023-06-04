@@ -31,6 +31,7 @@ const Slider = () => {
     return arrayIndexSilder;
   };
   const hiddenAttributeSlide = (sliderList, listIndexSlide) => {
+    console.log(sliderList);
     for (let i = 0; i < sliderList.length; i++) {
       sliderList[i].classList?.remove(
         "order-first",
@@ -44,9 +45,9 @@ const Slider = () => {
         "z-10"
       );
       if (listIndexSlide.some((item) => item === i)) {
-        sliderList[i].style.display = "block";
+        sliderList[i].style.cssText = `display: block`;
       } else {
-        sliderList[i].style.display = "none";
+        sliderList[i].style.cssText = `display: none`;
       }
     }
   };
@@ -78,6 +79,7 @@ const Slider = () => {
     const sliderList = Array.from(
       document.getElementsByClassName("slider-item")
     );
+    console.log(sliderList);
     if (!isHoverBanner) {
       // eslint-disable-next-line react-hooks/exhaustive-deps
       intervalID = setInterval(() => {
@@ -88,9 +90,7 @@ const Slider = () => {
         );
         hiddenAttributeSlide(sliderList, listIndexSlide);
         addAttributeSlide(sliderList, listIndexSlide);
-        setMinIndex((prev) => (prev === sliderList.length - 1 ? 0 : prev + 1));
-        setMaxIndex((prev) => (prev === sliderList.length - 1 ? 0 : prev + 1));
-      }, 3000);
+      }, 1000);
     } else {
       const listIndexSlide = getIndexSlider(
         minIndex,
@@ -99,12 +99,14 @@ const Slider = () => {
       );
       hiddenAttributeSlide(sliderList, listIndexSlide);
       addAttributeSlide(sliderList, listIndexSlide);
+      setMaxIndex((prev) => (prev === 5 ? 0 : prev + 1));
+      setMinIndex((prev) => (prev === 5 ? 0 : prev + 1));
     }
 
     return () => {
       intervalID && clearInterval(intervalID);
     };
-  }, [minIndex, maxIndex]);
+  }, []);
 
   const handleClickBanner = (item) => {
     if (item?.type === 1) {
@@ -132,19 +134,19 @@ const Slider = () => {
   };
 
   const handleClickPrevBanner = () => {
-    setIsHoverBanner(true)
+    setIsHoverBanner(true);
     setMaxIndex((prev) => (prev === 5 ? 0 : prev + 1));
     setMinIndex((prev) => (prev === 5 ? 0 : prev + 1));
   };
 
   const handleClickNextBanner = () => {
-    setIsHoverBanner(true)
+    setIsHoverBanner(true);
     setMaxIndex((prev) => (prev === 0 ? 5 : prev - 1));
     setMinIndex((prev) => (prev === 0 ? 5 : prev - 1));
   };
   return (
     <div
-      className="w-full pt-[129px] px-[58px] relative"
+      className="w-full pt-[129px] px-[58px] relative overflow-hidden"
       onMouseEnter={handleMouseEnterBanner}
       onMouseLeave={handleMouseLeaveBanner}
     >
@@ -169,7 +171,7 @@ const Slider = () => {
         </div>
       )}
 
-      <div className="grid grid-cols-3 grid-rows-1 gap-5 overflow-hidden">
+      <div className="flex w-full justify-center gap-5 overflow-hidden">
         {banner?.map((item, index) => {
           return (
             <img
@@ -177,7 +179,7 @@ const Slider = () => {
               src={item.banner}
               alt="banner"
               onClick={() => handleClickBanner(item)}
-              className={`slider-item select-none rounded-md cursor-pointer  ${
+              className={`slider-item select-none rounded-md cursor-pointer w-[32%] ${
                 index <= 2 ? "block" : "hidden"
               }`}
             />
