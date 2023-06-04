@@ -1,0 +1,12 @@
+export { default as Home } from "./Home";
+export { default as Login } from "./Login";
+export { default as Public } from "./Public";
+export { default as Album } from "./Album";
+export { default as WeekChart } from "./WeekChart";
+export { default as ZingChart } from "./ZingChart";
+export { default as Search } from "./Search";
+export { default as SearchSongs } from "./SearchSongs";
+export { default as SearchSongAll } from "./SearchSongAll";
+export { default as SearchArtists } from "./SearchArtists";
+export { default as SearchPlaylistAlbum } from "./SearchPlaylistAlbum";
+export { default as Singer } from "./Singer";

@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.text-shadow-no1 {
+  text-shadow: 1px 1px 0 #4a90e2, -1px 1px 0 #4a90e2, -1px -1px 0 #4a90e2, 1px -1px 0 #4a90e2
+}
+
+.text-shadow-no2 {
+  text-shadow: 1px 1px 0 #50e3c2, -1px 1px 0 #50e3c2, -1px -1px 0 #50e3c2, 1px -1px 0 #50e3c2
+}
+
+.text-shadow-no3 {
+  text-shadow: 1px 1px 0 #e35050, -1px 1px 0 #e35050, -1px -1px 0 #e35050, 1px -1px 0 #e35050
+}
+
+.text-shadow-more {
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.5), -1px -1px 0 rgba(255, 255, 255, 0.5), 1px -1px 0 rgba(255, 255, 255, 0.5)
+}
+
+/* .thumb-vertical {
+  position: relative;
+  display: block;
+  width: 100px;
+  height: 10px;
+  cursor: pointer;
+  border-radius: inherit;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.track-vertical {
+  position: absolute;
+  width: 1px;
+  display: block !important;
+  right: 2px;
+  bottom: 2px;
+  top: 2px;
+  border-radius: 3px;
+} */
+
+.track-vertical {
+  position: absolute !important;
+  width: 4px !important;
+  top: 0px;
+  bottom: 0px;
+  right: 16px;
+  border-radius: 3px;
+  /* background: rgba(255, 255, 255, 0.111); */
+}
+
+.track-vertical .thumb-vertical {
+  position: relative;
+  display: block;
+  width: 4px !important;
+  height: 80px !important;
+  cursor: pointer;
+  border-radius: inherit;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 999;
+}
+
+.track-horizontal {
+  display: none;
+}
+
+.track-horizontal .thumb-horizontal {
+  display: none;
+}
+
+.view {
+  overflow-x: hidden;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 90px;
+  overflow: hidden;
+  margin-right: -15px;
+  margin-bottom: 0px !important;
+}
+
+.hideText {
+  line-height: 1.6rem;
+  display: -webkit-box;
+  max-height: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+}
